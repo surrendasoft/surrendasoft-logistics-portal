@@ -24,6 +24,10 @@ export default function NewProjectFreightPage() {
       customerId,
       customerName: customer?.companyName || "",
       contactPerson: form.get("contactPerson") as string,
+      senderName: form.get("senderName") as string,
+      senderAddress: form.get("senderAddress") as string,
+      receiverName: form.get("receiverName") as string,
+      receiverAddress: form.get("receiverAddress") as string,
       pickupDetails: form.get("pickupDetails") as string,
       deliveryDetails: form.get("deliveryDetails") as string,
       jobDescription: form.get("jobDescription") as string,
@@ -35,6 +39,7 @@ export default function NewProjectFreightPage() {
       xeroContactRef: customer?.xeroContactRef || "",
       xeroInvoiceRef: "",
       paymentStatusRef: "Draft",
+      proofOfDelivery: "",
       tasks: [],
     };
     addProjectFreight(job);
@@ -69,6 +74,14 @@ export default function NewProjectFreightPage() {
             </select>
           </div>
           <Field label="Due Date" name="dueDate" type="date" />
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 rounded-lg bg-slate-50 p-4">
+          <div className="sm:col-span-2 text-sm font-semibold text-slate-700">Sender</div>
+          <Field label="Sender Name" name="senderName" />
+          <Field label="Sender Address" name="senderAddress" />
+          <div className="sm:col-span-2 text-sm font-semibold text-slate-700 mt-2">Receiver</div>
+          <Field label="Receiver Name" name="receiverName" />
+          <Field label="Receiver Address" name="receiverAddress" />
         </div>
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">Pickup Details</label>

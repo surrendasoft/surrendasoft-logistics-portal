@@ -14,10 +14,12 @@ import {
   FileText,
   Settings,
   ChevronRight,
+  Compass,
 } from "lucide-react";
 
 const navItems = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/demo-guide", label: "Demo Guide", icon: Compass },
   { href: "/leads", label: "Leads", icon: Users },
   { href: "/customers", label: "Customers", icon: Building2 },
   { href: "/project-freight", label: "Project Freight", icon: Truck },

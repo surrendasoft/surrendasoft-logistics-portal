@@ -78,6 +78,10 @@ export default function ProjectFreightDetailPage({
                 <Detail label="Contact" value={job.contactPerson} />
                 <Detail label="Supplier" value={job.assignedSupplierName || "—"} />
                 <Detail label="Due Date" value={formatDate(job.dueDate)} />
+                <Detail label="Sender" value={job.senderName || "—"} />
+                <Detail label="Sender Address" value={job.senderAddress || "—"} />
+                <Detail label="Receiver" value={job.receiverName || "—"} />
+                <Detail label="Receiver Address" value={job.receiverAddress || "—"} />
                 <Detail label="Pickup" value={job.pickupDetails} className="col-span-2" />
                 <Detail label="Delivery" value={job.deliveryDetails} className="col-span-2" />
                 <Detail label="Description" value={job.jobDescription} className="col-span-2" />
@@ -136,36 +140,70 @@ export default function ProjectFreightDetailPage({
         )}
 
         {activeTab === "documents" && (
-          <div className="rounded-xl bg-white border border-slate-200/60 shadow-sm">
-            <div className="px-5 py-4 border-b border-slate-100 flex justify-between items-center">
-              <h2 className="font-semibold text-slate-900">Job Documents</h2>
-              <button
-                onClick={handleUpload}
-                className="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-sky-700"
-              >
-                <Upload className="h-4 w-4" /> Upload
-              </button>
+          <div className="space-y-6">
+            <div className="rounded-xl bg-white border border-slate-200/60 shadow-sm">
+              <div className="px-5 py-4 border-b border-slate-100 flex justify-between items-center">
+                <h2 className="font-semibold text-slate-900">Job Documents</h2>
+                <button
+                  onClick={handleUpload}
+                  className="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-sky-700"
+                >
+                  <Upload className="h-4 w-4" /> Upload
+                </button>
+              </div>
+              {jobDocs.length === 0 ? (
+                <p className="px-5 py-8 text-sm text-slate-500 text-center">No documents uploaded</p>
+              ) : (
+                <ul className="divide-y divide-slate-50">
+                  {jobDocs.map((doc) => (
+                    <li key={doc.id} className="flex items-center justify-between px-5 py-3 hover:bg-slate-50">
+                      <div className="flex items-center gap-3">
+                        <FileText className="h-5 w-5 text-slate-400" />
+                        <div>
+                          <p className="text-sm font-medium text-slate-900">{doc.fileName}</p>
+                          <p className="text-xs text-slate-500">{doc.type} — uploaded {formatDate(doc.uploadedDate)} by {doc.uploadedBy}</p>
+                        </div>
+                      </div>
+                      <button onClick={() => showToast("Demo: View/download placeholder")} className="text-sm text-sky-600 hover:underline">
+                        View
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-            {jobDocs.length === 0 ? (
-              <p className="px-5 py-8 text-sm text-slate-500 text-center">No documents uploaded</p>
-            ) : (
-              <ul className="divide-y divide-slate-50">
-                {jobDocs.map((doc) => (
-                  <li key={doc.id} className="flex items-center justify-between px-5 py-3 hover:bg-slate-50">
+
+            <div className="rounded-xl bg-white border border-slate-200/60 shadow-sm">
+              <div className="px-5 py-4 border-b border-slate-100">
+                <h2 className="font-semibold text-slate-900">Proof of Delivery</h2>
+              </div>
+              <div className="px-5 py-5">
+                {currentJob.proofOfDelivery ? (
+                  <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <FileText className="h-5 w-5 text-slate-400" />
+                      <FileText className="h-5 w-5 text-emerald-500" />
                       <div>
-                        <p className="text-sm font-medium text-slate-900">{doc.fileName}</p>
-                        <p className="text-xs text-slate-500">Uploaded {formatDate(doc.uploadedDate)} by {doc.uploadedBy}</p>
+                        <p className="text-sm font-medium text-slate-900">{currentJob.proofOfDelivery}</p>
+                        <p className="text-xs text-slate-500">Signed POD, delivery photos and signature on file</p>
                       </div>
                     </div>
                     <button onClick={() => showToast("Demo: View/download placeholder")} className="text-sm text-sky-600 hover:underline">
                       View
                     </button>
-                  </li>
-                ))}
-              </ul>
-            )}
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center gap-3 rounded-lg border border-dashed border-slate-300 py-8 text-center">
+                    <p className="text-sm text-slate-500">No proof of delivery uploaded yet</p>
+                    <button
+                      onClick={() => showToast("Demo: POD / signature / photo upload placeholder")}
+                      className="inline-flex items-center gap-2 rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-200"
+                    >
+                      <Upload className="h-4 w-4" /> Upload POD / Signature / Photo
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         )}
 

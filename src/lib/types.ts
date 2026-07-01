@@ -42,7 +42,11 @@ export type DocumentType =
   | "Contractor Agreement"
   | "Other"
   | "Job Document"
-  | "Customer Document";
+  | "Customer Document"
+  | "Proof of Delivery"
+  | "Signature"
+  | "Delivery Photo"
+  | "Supplier Document";
 
 export type ExternalSystem =
   | "Transvirtual"
@@ -74,6 +78,10 @@ export interface ProjectFreightJob {
   customerId: string;
   customerName: string;
   contactPerson: string;
+  senderName: string;
+  senderAddress: string;
+  receiverName: string;
+  receiverAddress: string;
   pickupDetails: string;
   deliveryDetails: string;
   jobDescription: string;
@@ -85,6 +93,7 @@ export interface ProjectFreightJob {
   xeroContactRef: string;
   xeroInvoiceRef: string;
   paymentStatusRef: string;
+  proofOfDelivery: string;
   tasks: ProjectFreightTask[];
 }
 
@@ -97,6 +106,17 @@ export interface GeneralFreightJob {
   customerName: string;
   supplierId: string;
   supplierName: string;
+  senderName: string;
+  senderAddress: string;
+  receiverName: string;
+  receiverAddress: string;
+  receiverSuburb: string;
+  pickupDetails: string;
+  deliveryDetails: string;
+  quantity: string;
+  weight: string;
+  cubic: string;
+  notes: string;
   status: GeneralFreightStatus;
   lastSynced: string;
   syncState: SyncState;
@@ -169,6 +189,14 @@ export interface Consignment {
   customerName: string;
   supplierId: string;
   supplierName: string;
+  senderName: string;
+  receiverName: string;
+  receiverSuburb: string;
+  quantity: string;
+  weight: string;
+  cubic: string;
+  notes: string;
+  bookingDate: string;
   status: string;
   lastSynced: string;
   generalFreightJobId: string;

@@ -15,6 +15,7 @@ import {
 import { useApp } from "@/lib/store";
 import { SummaryCard } from "@/components/ui/SummaryCard";
 import { StatusBadge } from "@/components/ui/StatusBadge";
+import { DemoBanner } from "@/components/ui/DemoBanner";
 import { formatDate, formatDateTime } from "@/lib/utils";
 
 export default function DashboardPage() {
@@ -65,6 +66,7 @@ export default function DashboardPage() {
 
   return (
     <div>
+      <DemoBanner />
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
         <p className="mt-1 text-sm text-slate-500">

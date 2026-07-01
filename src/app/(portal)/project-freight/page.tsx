@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useApp } from "@/lib/store";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { StatusBadge } from "@/components/ui/StatusBadge";
+import { DemoBanner } from "@/components/ui/DemoBanner";
 import { formatDate } from "@/lib/utils";
 import type { ProjectFreightStatus } from "@/lib/types";
 
@@ -27,6 +28,7 @@ export default function ProjectFreightPage() {
 
   return (
     <div>
+      <DemoBanner message="Project Freight is managed inside the portal. This is demo data — create and edit forms show the full field set." />
       <PageHeader
         title="Project Freight"
         description="Internal project freight jobs managed in Romann Logistics"

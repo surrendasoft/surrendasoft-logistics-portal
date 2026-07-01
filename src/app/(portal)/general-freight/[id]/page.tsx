@@ -56,7 +56,7 @@ export default function GeneralFreightDetailPage({
           <h2 className="font-semibold text-slate-900 mb-4">Job Details</h2>
           <dl className="grid grid-cols-2 gap-4 text-sm">
             <Detail label="External System" value={job.externalSystem} />
-            <Detail label="External Job ID" value={job.externalJobId || "—"} />
+            <Detail label="External Job / Consignment ID" value={job.externalJobId || "—"} />
             <Detail label="Customer" value={job.customerName} />
             <Detail label="Supplier / TMS" value={job.supplierName} />
             <Detail label="Status" value={job.status} />
@@ -87,6 +87,32 @@ export default function GeneralFreightDetailPage({
           <p className="mt-4 text-xs text-slate-400">
             Two-way read/create integration with {job.externalSystem} — demo placeholder only.
           </p>
+        </div>
+
+        <div className="rounded-xl bg-white border border-slate-200/60 p-6 shadow-sm">
+          <h2 className="font-semibold text-slate-900 mb-4">Sender & Receiver</h2>
+          <dl className="grid grid-cols-2 gap-4 text-sm">
+            <Detail label="Sender" value={job.senderName || "—"} />
+            <Detail label="Sender Address" value={job.senderAddress || "—"} />
+            <Detail label="Receiver" value={job.receiverName || "—"} />
+            <Detail label="Receiver Address" value={job.receiverAddress || "—"} />
+            <Detail label="Receiver Suburb" value={job.receiverSuburb || "—"} />
+            <Detail label="Pickup" value={job.pickupDetails || "—"} />
+            <Detail label="Delivery" value={job.deliveryDetails || "—"} />
+          </dl>
+        </div>
+
+        <div className="rounded-xl bg-white border border-slate-200/60 p-6 shadow-sm">
+          <h2 className="font-semibold text-slate-900 mb-4">Freight Details</h2>
+          <dl className="grid grid-cols-3 gap-4 text-sm">
+            <Detail label="Quantity" value={job.quantity || "—"} />
+            <Detail label="Weight" value={job.weight || "—"} />
+            <Detail label="Cubic" value={job.cubic || "—"} />
+          </dl>
+          <div className="mt-4">
+            <p className="text-slate-500 text-sm">Notes</p>
+            <p className="font-medium text-slate-900 mt-0.5 text-sm">{job.notes || "—"}</p>
+          </div>
         </div>
       </div>
 

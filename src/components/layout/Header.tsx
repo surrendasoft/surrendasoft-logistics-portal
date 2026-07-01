@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Search, Bell, ChevronDown, User } from "lucide-react";
 
 export function Header() {
@@ -43,16 +44,16 @@ export function Header() {
 
           {showDropdown && (
             <div className="absolute right-0 mt-2 w-48 rounded-lg border border-slate-200 bg-white py-1 shadow-lg">
-              <button className="block w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50">
+              <Link href="/settings" className="block w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50">
                 Profile
-              </button>
-              <button className="block w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50">
+              </Link>
+              <Link href="/settings" className="block w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50">
                 Settings
-              </button>
+              </Link>
               <hr className="my-1 border-slate-200" />
-              <button className="block w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50">
+              <Link href="/login" className="block w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50">
                 Sign out (demo)
-              </button>
+              </Link>
             </div>
           )}
         </div>

@@ -28,6 +28,10 @@ export default function EditProjectFreightPage({
     updateProjectFreight({
       ...job!,
       contactPerson: form.get("contactPerson") as string,
+      senderName: form.get("senderName") as string,
+      senderAddress: form.get("senderAddress") as string,
+      receiverName: form.get("receiverName") as string,
+      receiverAddress: form.get("receiverAddress") as string,
       pickupDetails: form.get("pickupDetails") as string,
       deliveryDetails: form.get("deliveryDetails") as string,
       jobDescription: form.get("jobDescription") as string,
@@ -70,6 +74,14 @@ export default function EditProjectFreightPage({
           <Field label="Due Date" name="dueDate" type="date" defaultValue={job.dueDate} />
           <Field label="Xero Invoice Ref" name="xeroInvoiceRef" defaultValue={job.xeroInvoiceRef} />
           <Field label="Payment Status" name="paymentStatusRef" defaultValue={job.paymentStatusRef} />
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 rounded-lg bg-slate-50 p-4">
+          <div className="sm:col-span-2 text-sm font-semibold text-slate-700">Sender</div>
+          <Field label="Sender Name" name="senderName" defaultValue={job.senderName} />
+          <Field label="Sender Address" name="senderAddress" defaultValue={job.senderAddress} />
+          <div className="sm:col-span-2 text-sm font-semibold text-slate-700 mt-2">Receiver</div>
+          <Field label="Receiver Name" name="receiverName" defaultValue={job.receiverName} />
+          <Field label="Receiver Address" name="receiverAddress" defaultValue={job.receiverAddress} />
         </div>
         <TextArea label="Pickup Details" name="pickupDetails" defaultValue={job.pickupDetails} />
         <TextArea label="Delivery Details" name="deliveryDetails" defaultValue={job.deliveryDetails} />
