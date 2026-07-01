@@ -16,7 +16,12 @@ import {
   Check,
   X,
   ArrowRight,
+  ExternalLink,
+  ClipboardCheck,
 } from "lucide-react";
+
+const DEMO_REVIEW_CHECKLIST_URL =
+  "https://docs.google.com/document/d/1BvlI1g_E04V3RQxvez2P9nmEkdoe69_vsdAxDncQ57E/edit?usp=sharing";
 
 const modules = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard, desc: "Operational overview — active jobs, sync status, compliance alerts, leads, tasks and activity." },
@@ -72,6 +77,32 @@ export default function DemoGuidePage() {
           realistic sample data so you can experience the workflow and the exact forms and fields before development begins.
           Buttons, forms, uploads and sync actions show confirmations rather than saving to a live system.
         </p>
+      </div>
+
+      <div className="mb-8 rounded-xl bg-white border border-slate-200/60 p-5 shadow-sm">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-start gap-3">
+            <div className="rounded-lg bg-emerald-50 p-2 text-emerald-600">
+              <ClipboardCheck className="h-5 w-5" />
+            </div>
+            <div>
+              <h2 className="font-semibold text-slate-900">Demo Review Checklist</h2>
+              <p className="mt-1 text-sm text-slate-500">
+                After clicking through the modules below, use the checklist to note what looks right, what to change, and
+                anything missing before Phase 1 build starts.
+              </p>
+            </div>
+          </div>
+          <a
+            href={DEMO_REVIEW_CHECKLIST_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-sky-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-sky-700 transition-colors"
+          >
+            Open checklist
+            <ExternalLink className="h-4 w-4" />
+          </a>
+        </div>
       </div>
 
       <h2 className="text-lg font-semibold text-slate-900 mb-3">Explore the modules</h2>
