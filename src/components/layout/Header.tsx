@@ -37,7 +37,7 @@ export function Header() {
             </div>
             <div className="hidden sm:block text-left">
               <p className="text-sm font-medium text-slate-900">Ryan</p>
-              <p className="text-xs text-slate-500">Ryan@romannlogistics.com</p>
+              <p className="text-xs text-slate-500">ryanr@romannlogistics.com.au</p>
             </div>
             <ChevronDown className="h-4 w-4 text-slate-400" />
           </button>

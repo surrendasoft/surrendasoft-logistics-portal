@@ -21,7 +21,7 @@ export default function SettingsPage() {
           <h2 className="font-semibold text-slate-900 mb-4">Business Profile</h2>
           <dl className="grid grid-cols-2 gap-4 text-sm">
             <Detail label="Company Name" value="Romann Logistics" />
-            <Detail label="Contact Email" value="Ryan@romannlogistics.com" />
+            <Detail label="Contact Email" value="ryanr@romannlogistics.com.au" />
             <Detail label="Phone" value="02 9000 0000" />
             <Detail label="Address" value="Sydney, NSW, Australia" />
           </dl>
@@ -47,7 +47,7 @@ export default function SettingsPage() {
             <tbody>
               <tr>
                 <td className="py-3 font-medium">Ryan</td>
-                <td className="py-3 text-slate-600">Ryan@romannlogistics.com</td>
+                <td className="py-3 text-slate-600">ryanr@romannlogistics.com.au</td>
                 <td className="py-3 text-slate-500">Admin</td>
               </tr>
             </tbody>
