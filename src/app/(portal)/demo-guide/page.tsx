@@ -52,7 +52,7 @@ const included = [
 ];
 
 const aspirational = [
-  "Transmate / Internet Courier live API (only if written vendor documentation & approved access are provided before build)",
+  "Transmate / Internet Courier live (only if written vendor documentation & approved access are provided before build)",
   "Draft invoice creation in Xero (where agreed)",
   "Automatic POD / image pull from supplier platforms (only if vendor export is documented & tested)",
 ];
@@ -176,7 +176,7 @@ export default function DemoGuidePage() {
           ))}
         </ul>
         <p className="px-5 py-3 text-xs text-amber-700 border-t border-amber-200/70">
-          We can&apos;t promise these — they depend on third-party API access, documentation and vendor approval. We&apos;ll aim
+          We can&apos;t promise these — they depend on third-party access, documentation and vendor approval. We&apos;ll aim
           for them where feasible, but they are bonuses on top of the core Phase 1 scope above.
         </p>
       </div>
@@ -186,7 +186,7 @@ export default function DemoGuidePage() {
         <p className="text-sm text-slate-600">
           Project Freight is managed directly inside this portal. General Freight and Consignments stay linked to third-party
           platforms — TransVirtual is the primary Phase 1 API candidate, while Transmate and Internet Courier remain
-          manual/reference unless vendor API access is confirmed. The portal stores references and sync status. Xero remains the
+          manual/reference unless vendor access is confirmed. The portal stores references and sync status. Xero remains the
           source of truth for invoices and payments — the portal shows reference fields only. Each workflow has a single invoice
           source (Xero/manual, supplier-native, or portal-to-Xero) so there is no duplicate invoicing. This keeps Phase 1
           focused while creating a foundation for deeper integrations later.
