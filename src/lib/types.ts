@@ -58,7 +58,10 @@ export type IntegrationStatus =
   | "Connected"
   | "Not connected"
   | "Needs API credentials"
-  | "Sync error";
+  | "Sync error"
+  | "Reference"
+  | "Primary candidate"
+  | "Manual / reference";
 
 export type FreightType = "Project Freight" | "General Freight";
 

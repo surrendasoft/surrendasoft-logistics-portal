@@ -18,6 +18,7 @@ import {
   ArrowRight,
   ExternalLink,
   ClipboardCheck,
+  Sparkles,
 } from "lucide-react";
 
 const DEMO_REVIEW_CHECKLIST_URL =
@@ -47,20 +48,24 @@ const included = [
   "Compliance documents with expiry tracking",
   "Document uploads (POD, signatures, photos, PDFs)",
   "Xero reference fields (contact, invoice, payment status)",
-  "Integration-ready structure with one platform proof-of-concept",
+  "Integration-ready structure with a TransVirtual API proof-of-concept (subject to access)",
+];
+
+const aspirational = [
+  "TransVirtual live read/create API proof-of-concept (primary target)",
+  "Transmate / Internet Courier live API (only if written vendor documentation & approved access are provided before build)",
+  "Draft invoice creation in Xero (where agreed)",
+  "Automatic POD / image pull from supplier platforms (only if vendor export is documented & tested)",
 ];
 
 const excluded = [
-  "Full replacement of TransVirtual / Transmate / Internet Courier",
-  "Full replacement of Xero",
-  "Full two-way production integrations with multiple platforms",
-  "Full invoice or financial reporting module in the portal",
-  "Live GPS tracking & route optimisation",
-  "Full driver mobile app / native apps",
-  "Advanced AI automation & insurance expiry scanning",
-  "Email-to-job automation",
-  "Complex quoting / freight rate engine",
-  "Payroll & accounting features",
+  "Full replacement of TransVirtual / Transmate / Internet Courier or Xero",
+  "Full invoice / financial reporting / accounting / tax / reconciliation logic in the portal",
+  "General Freight third-party-to-Xero integration & configuration/replacement of native supplier-to-Xero integrations",
+  "Dual invoice-generation paths for the same transaction type",
+  "Live GPS tracking, route optimisation, driver mobile app, native apps or customer portal",
+  "Advanced AI automation, automatic compliance decisions, complex quoting / rate engine, payroll",
+  "Email-to-job automation, large-scale data migration, unlimited revisions / support",
 ];
 
 export default function DemoGuidePage() {
@@ -158,12 +163,33 @@ export default function DemoGuidePage() {
         </div>
       </div>
 
+      <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50/60 shadow-sm">
+        <div className="px-5 py-4 border-b border-amber-200/70 flex items-center gap-2">
+          <Sparkles className="h-4 w-4 text-amber-600" />
+          <h2 className="font-semibold text-amber-800">Aiming to include — subject to API access, not guaranteed (potential bonus)</h2>
+        </div>
+        <ul className="divide-y divide-amber-100">
+          {aspirational.map((item) => (
+            <li key={item} className="flex items-start gap-3 px-5 py-3">
+              <Sparkles className="h-4 w-4 shrink-0 text-amber-500 mt-0.5" />
+              <span className="text-sm text-amber-900">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="px-5 py-3 text-xs text-amber-700 border-t border-amber-200/70">
+          We can&apos;t promise these — they depend on third-party API access, documentation and vendor approval. We&apos;ll aim
+          for them where feasible, but they are bonuses on top of the core Phase 1 scope above.
+        </p>
+      </div>
+
       <div className="mt-6 rounded-xl bg-white border border-slate-200/60 p-5 shadow-sm">
         <h2 className="font-semibold text-slate-900 mb-2">How it fits together</h2>
         <p className="text-sm text-slate-600">
           Project Freight is managed directly inside this portal. General Freight and Consignments stay linked to third-party
-          platforms (Transvirtual, Transmate, Internet Courier), with the portal storing references and sync status. Xero
-          remains the source of truth for invoices and payments — the portal shows reference fields only. This keeps Phase 1
+          platforms — TransVirtual is the primary Phase 1 API candidate, while Transmate and Internet Courier remain
+          manual/reference unless vendor API access is confirmed. The portal stores references and sync status. Xero remains the
+          source of truth for invoices and payments — the portal shows reference fields only. Each workflow has a single invoice
+          source (Xero/manual, supplier-native, or portal-to-Xero) so there is no duplicate invoicing. This keeps Phase 1
           focused while creating a foundation for deeper integrations later.
         </p>
       </div>

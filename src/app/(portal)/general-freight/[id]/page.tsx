@@ -20,6 +20,8 @@ export default function GeneralFreightDetailPage({
     return <div className="text-center py-12 text-slate-500">Job not found</div>;
   }
 
+  const isPrimaryCandidate = job.externalSystem === "Transvirtual";
+
   return (
     <div>
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between mb-6">
@@ -72,20 +74,22 @@ export default function GeneralFreightDetailPage({
               <StatusBadge status={job.syncState} />
             </div>
             <div className="flex justify-between items-center py-2 border-b border-slate-100">
-              <span className="text-slate-600">Read Integration</span>
-              <span className="text-emerald-600 font-medium">Placeholder active</span>
-            </div>
-            <div className="flex justify-between items-center py-2 border-b border-slate-100">
-              <span className="text-slate-600">Create Integration</span>
-              <span className="text-emerald-600 font-medium">Placeholder active</span>
+              <span className="text-slate-600">API Position</span>
+              {isPrimaryCandidate ? (
+                <span className="text-sky-600 font-medium">Primary candidate</span>
+              ) : (
+                <span className="text-slate-500 font-medium">Manual / reference</span>
+              )}
             </div>
             <div className="flex justify-between items-center py-2">
               <span className="text-slate-600">Xero Integration</span>
-              <span className="text-slate-400">Not connected (Phase 1)</span>
+              <span className="text-slate-400">Reference only (Phase 1)</span>
             </div>
           </div>
           <p className="mt-4 text-xs text-slate-400">
-            Two-way read/create integration with {job.externalSystem} — demo placeholder only.
+            {isPrimaryCandidate
+              ? `${job.externalSystem} is the primary Phase 1 API candidate — a live read/create proof-of-concept is targeted, subject to API access. Demo placeholder only.`
+              : `${job.externalSystem} is manual / reference in Phase 1. A live API is a potential bonus if vendor API access is confirmed in writing. Demo placeholder only.`}
           </p>
         </div>
 

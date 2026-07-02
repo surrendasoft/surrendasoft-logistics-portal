@@ -791,25 +791,25 @@ export const integrations: IntegrationSetting[] = [
   {
     id: "int-1",
     name: "Xero",
-    status: "Connected",
-    description: "Accounting & invoicing — contact and invoice references synced",
+    status: "Reference",
+    description: "Contact + invoice references; draft invoice creation where agreed. Xero stays the source of truth.",
   },
   {
     id: "int-2",
     name: "Transvirtual",
-    status: "Connected",
-    description: "General freight TMS — read/create integration active",
+    status: "Primary candidate",
+    description: "Targeted Phase 1 API proof-of-concept (subject to API access).",
   },
   {
     id: "int-3",
     name: "Transmate",
-    status: "Connected",
-    description: "General freight TMS — read integration active",
+    status: "Manual / reference",
+    description: "Manual/reference or CSV in Phase 1. Live API a potential bonus if written vendor access is confirmed.",
   },
   {
     id: "int-4",
     name: "Internet Courier",
-    status: "Sync error",
-    description: "Authentication token expired — demo placeholder",
+    status: "Manual / reference",
+    description: "Manual/reference or CSV in Phase 1. Live API a potential bonus if written vendor access is confirmed.",
   },
 ];

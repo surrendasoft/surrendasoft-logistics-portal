@@ -32,7 +32,7 @@ export default function GeneralFreightPage() {
         action={{ label: "Create Request", href: "/general-freight/new" }}
       />
       <div className="mb-4 rounded-lg bg-amber-50 border border-amber-200 px-4 py-3 text-sm text-amber-800">
-        General Freight is managed via third-party supplier/TMS systems. Not integrated with Xero in Phase 1.
+        General Freight is managed via third-party supplier/TMS systems. TransVirtual is the primary Phase 1 API candidate; Transmate and Internet Courier stay manual/reference, with a live API as a potential bonus if vendor access is confirmed. Not integrated with Xero in Phase 1.
       </div>
       <div className="mb-4 flex flex-wrap gap-3">
         <input

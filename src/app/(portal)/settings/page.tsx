@@ -73,7 +73,7 @@ export default function SettingsPage() {
         <section className="rounded-xl bg-white border border-slate-200/60 p-6 shadow-sm">
           <h2 className="font-semibold text-slate-900 mb-4">Integration Settings</h2>
           <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4">
-            Demo placeholders — no real API connections in this MVP
+            Demo placeholders — no real API connections in this MVP. Live integrations depend on each vendor&apos;s API access and approval and are not guaranteed in Phase 1. TransVirtual is the primary candidate; Transmate and Internet Courier stay manual/reference unless written API access is confirmed.
           </p>
           <div className="space-y-3">
             {integrations.map((integration) => (
