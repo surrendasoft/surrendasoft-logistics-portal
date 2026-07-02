@@ -165,7 +165,7 @@ export default function DemoGuidePage() {
       <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50/60 shadow-sm">
         <div className="px-5 py-4 border-b border-amber-200/70 flex items-center gap-2">
           <Sparkles className="h-4 w-4 text-amber-600" />
-          <h2 className="font-semibold text-amber-800">Aiming to include — subject to API access, not guaranteed (potential bonus)</h2>
+          <h2 className="font-semibold text-amber-800">Aiming to include — subject to access, not guaranteed</h2>
         </div>
         <ul className="divide-y divide-amber-100">
           {aspirational.map((item) => (
