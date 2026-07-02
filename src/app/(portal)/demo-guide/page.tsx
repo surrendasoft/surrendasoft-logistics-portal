@@ -52,7 +52,6 @@ const included = [
 ];
 
 const aspirational = [
-  "TransVirtual live read/create API proof-of-concept (primary target)",
   "Transmate / Internet Courier live API (only if written vendor documentation & approved access are provided before build)",
   "Draft invoice creation in Xero (where agreed)",
   "Automatic POD / image pull from supplier platforms (only if vendor export is documented & tested)",
