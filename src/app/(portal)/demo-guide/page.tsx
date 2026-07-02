@@ -42,19 +42,22 @@ const included = [
   "Leads / CRM with convert-to-customer",
   "Customers with related jobs & Xero references",
   "Project Freight jobs (sender/receiver, tasks, documents, POD)",
-  "General Freight references with sync status",
+  "General Freight references with supplier/TMS status fields",
   "Consignments table with sender/receiver, qty/weight/cubic & filters",
   "Suppliers / Agents with compliance",
   "Compliance documents with expiry tracking",
   "Document uploads (POD, signatures, photos, PDFs)",
-  "Xero reference fields (contact, invoice, payment status)",
-  "Integration-ready structure with a TransVirtual API proof-of-concept (subject to access)",
+  "Xero reference fields for contacts, invoices and payment status where agreed",
+  "Integration-ready structure for supplier references, tracking links, CSV/file workflows, email-based updates and future API integrations where access allows",
 ];
 
 const aspirational = [
-  "Transmate / Internet Courier live (only if written vendor documentation & approved access are provided before build)",
-  "Draft invoice creation in Xero (where agreed)",
-  "Automatic POD / image pull from supplier platforms (only if vendor export is documented & tested)",
+  "TransVirtual consignment create/read/status integration",
+  "Draft invoice creation in Xero, where agreed",
+  "Transmate / Internet Courier / other supplier integration only if written vendor documentation and approved access are provided before build",
+  "Automatic POD/image retrieval from supplier platforms only if vendor export or API behaviour is documented, approved and tested",
+  "CSV/XML/SFTP/FTP file exchange where supported by the supplier",
+  "Email-based supplier update capture where supplier emails are consistent and agreed for use",
 ];
 
 const excluded = [
@@ -165,8 +168,12 @@ export default function DemoGuidePage() {
       <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50/60 shadow-sm">
         <div className="px-5 py-4 border-b border-amber-200/70 flex items-center gap-2">
           <Sparkles className="h-4 w-4 text-amber-600" />
-          <h2 className="font-semibold text-amber-800">Aiming to include — subject to access, not guaranteed</h2>
+          <h2 className="font-semibold text-amber-800">Potential Phase 1 Additions — Subject to Access and Confirmation</h2>
         </div>
+        <p className="px-5 py-3 text-sm text-amber-900 border-b border-amber-200/70">
+          These items may be included only if the required account access, supplier documentation, credentials, permissions,
+          pricing, technical feasibility and final agreed scope allow.
+        </p>
         <ul className="divide-y divide-amber-100">
           {aspirational.map((item) => (
             <li key={item} className="flex items-start gap-3 px-5 py-3">
@@ -176,21 +183,33 @@ export default function DemoGuidePage() {
           ))}
         </ul>
         <p className="px-5 py-3 text-xs text-amber-700 border-t border-amber-200/70">
-          We can&apos;t promise these — they depend on third-party access, documentation and vendor approval. We&apos;ll aim
-          for them where feasible, but they are bonuses on top of the core Phase 1 scope above.
+          These items are not guaranteed inclusions. They depend on third-party access, documentation, credentials, vendor
+          approval, pricing, testing and final written scope. Where direct API access is not available, we may use practical
+          fallback methods such as manual references, tracking links, CSV/file exchange, SFTP/FTP, scheduled reports or
+          email-based supplier update capture.
         </p>
       </div>
 
       <div className="mt-6 rounded-xl bg-white border border-slate-200/60 p-5 shadow-sm">
         <h2 className="font-semibold text-slate-900 mb-2">How it fits together</h2>
-        <p className="text-sm text-slate-600">
-          Project Freight is managed directly inside this portal. General Freight and Consignments stay linked to third-party
-          platforms — TransVirtual is the primary Phase 1 API candidate, while Transmate and Internet Courier remain
-          manual/reference unless vendor access is confirmed. The portal stores references and sync status. Xero remains the
-          source of truth for invoices and payments — the portal shows reference fields only. Each workflow has a single invoice
-          source (Xero/manual, supplier-native, or portal-to-Xero) so there is no duplicate invoicing. This keeps Phase 1
-          focused while creating a foundation for deeper integrations later.
-        </p>
+        <div className="space-y-3 text-sm text-slate-600">
+          <p>
+            Project Freight is managed directly inside this portal. General Freight and Consignments stay linked to third-party
+            supplier/TMS platforms. TransVirtual is the primary Phase 1 API candidate, subject to Romann account access and
+            vendor confirmation. Transmate, Internet Courier and other supplier systems remain manual/reference, CSV/file-based,
+            email-assisted or vendor-supported unless approved integration access is confirmed.
+          </p>
+          <p>
+            The portal stores internal job records, supplier references, tracking links, sync status, documents and Xero
+            reference fields. Xero remains the source of truth for invoices, payments, tax and reconciliation. Where agreed,
+            the portal may create draft invoices or display invoice/payment status, but it does not replace Xero accounting
+            workflows.
+          </p>
+          <p>
+            Each workflow must have a single invoice source: Xero/manual, supplier-native Xero integration, or portal-to-Xero.
+            This avoids duplicate invoices and keeps Phase 1 focused while creating a foundation for deeper integrations later.
+          </p>
+        </div>
       </div>
     </div>
   );
