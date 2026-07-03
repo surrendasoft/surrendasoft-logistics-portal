@@ -29,45 +29,48 @@ const modules = [
   { href: "/leads", label: "Leads / CRM", icon: Users, desc: "Capture enquiries, track pipeline status and convert leads into customers or jobs." },
   { href: "/customers", label: "Customers", icon: Building2, desc: "Customer records, related jobs, notes and Xero contact references." },
   { href: "/project-freight", label: "Project Freight", icon: Truck, desc: "Freight managed inside the portal — sender/receiver, tasks, documents, POD and Xero references." },
-  { href: "/general-freight", label: "General Freight", icon: Package, desc: "References for third-party TMS jobs (Transvirtual, Transmate, Internet Courier) with sync status." },
+  { href: "/general-freight", label: "General Freight", icon: Package, desc: "Reference records for third-party supplier/TMS jobs. Phase 1 supports supplier references, tracking links, status fields and related documents. TransVirtual is the first supplier integration path; other supplier integrations are future/separately scoped." },
   { href: "/consignments", label: "Consignments", icon: ClipboardList, desc: "TransVirtual-style consignment table with sender/receiver, qty/weight/cubic and filters." },
   { href: "/suppliers", label: "Suppliers / Agents", icon: UserCog, desc: "Supplier and agent records with compliance status and related jobs." },
   { href: "/compliance", label: "Compliance", icon: ShieldCheck, desc: "Insurance, licence and police-check documents with expiry tracking." },
   { href: "/documents", label: "Documents", icon: FileText, desc: "Central file registry — job docs, POD, signatures, photos, customer and supplier files." },
-  { href: "/settings", label: "Settings", icon: Settings, desc: "Business profile, users, branding and integration placeholders (Xero, TMS platforms)." },
+  { href: "/settings", label: "Settings", icon: Settings, desc: "Business profile, users, branding and integration placeholders for Xero and TransVirtual." },
 ];
 
 const included = [
   "Dashboard overview",
   "Leads / CRM with convert-to-customer",
   "Customers with related jobs & Xero references",
-  "Project Freight jobs (sender/receiver, tasks, documents, POD)",
+  "Project Freight jobs managed inside the portal",
   "General Freight references with supplier/TMS status fields",
   "Consignments table with sender/receiver, qty/weight/cubic & filters",
   "Suppliers / Agents with compliance",
   "Compliance documents with expiry tracking",
-  "Document uploads (POD, signatures, photos, PDFs)",
+  "Document uploads including POD, signatures, photos and PDFs",
   "Xero reference fields for contacts, invoices and payment status where agreed",
-  "Integration-ready structure for supplier references, tracking links, CSV/file workflows, email-based updates and future API integrations where access allows",
+  "Xero handling where agreed, such as draft invoice creation or status display",
+  "TransVirtual as the first supplier integration path, subject to Romann account access, API credentials and vendor confirmation",
 ];
 
-const aspirational = [
+const accessDependent = [
   "TransVirtual consignment create/read/status integration",
-  "Draft invoice creation in Xero, where agreed",
-  "Transmate / Internet Courier / other supplier integration only if written vendor documentation and approved access are provided before build",
-  "Automatic POD/image retrieval from supplier platforms only if vendor export or API behaviour is documented, approved and tested",
-  "CSV/XML/SFTP/FTP file exchange where supported by the supplier",
-  "Email-based supplier update capture where supplier emails are consistent and agreed for use",
+  "TransVirtual API access and authentication",
+  "TransVirtual POD/status behaviour, where supported and confirmed",
+  "Xero draft invoice creation, where agreed",
+  "Xero invoice/payment status display, where agreed",
 ];
 
 const excluded = [
-  "Full replacement of TransVirtual / Transmate / Internet Courier or Xero",
-  "Full invoice / financial reporting / accounting / tax / reconciliation logic in the portal",
-  "General Freight third-party-to-Xero integration & configuration/replacement of native supplier-to-Xero integrations",
+  "Full replacement of TransVirtual, Transmate, Internet Courier, Xero or any other third-party platform",
+  "Full invoice, financial reporting, accounting, tax or reconciliation logic inside the portal",
+  "Custom supplier-to-Xero bridge or replacement of native supplier-to-Xero integrations",
   "Dual invoice-generation paths for the same transaction type",
-  "Live GPS tracking, route optimisation, driver mobile app, native apps or customer portal",
-  "Advanced AI automation, automatic compliance decisions, complex quoting / rate engine, payroll",
-  "Email-to-job automation, large-scale data migration, unlimited revisions / support",
+  "API integration with Transmate, Internet Courier, Trans Courier, Prince Courier or other supplier/carrier platforms",
+  "CSV/XML/SFTP/FTP integration with other suppliers",
+  "Email-based supplier update capture for other suppliers",
+  "Live GPS tracking, route optimisation, driver mobile app, native mobile apps or customer portal",
+  "Advanced AI automation, automatic compliance decisions, complex quoting/rate engine or payroll",
+  "Large-scale data migration, unlimited revisions or unlimited support",
 ];
 
 export default function DemoGuidePage() {
@@ -84,6 +87,22 @@ export default function DemoGuidePage() {
           realistic sample data so you can experience the workflow and the exact forms and fields before development begins.
           Buttons, forms, uploads and sync actions show confirmations rather than saving to a live system.
         </p>
+      </div>
+
+      <div className="mb-6 rounded-xl border border-amber-300 bg-amber-50 p-5 shadow-sm">
+        <div className="flex items-start gap-3">
+          <div className="rounded-lg bg-amber-100 p-2 text-amber-700">
+            <ShieldCheck className="h-5 w-5" />
+          </div>
+          <div>
+            <h2 className="font-semibold text-amber-950">Phase 1 Scope Note</h2>
+            <p className="mt-1 text-sm text-amber-900">
+              This demo is a discussion reference only. The Phase 1 MVP is focused on the core Romann Logistics portal, Xero
+              handling where agreed, and TransVirtual as the first supplier integration path. Other supplier integrations are
+              future/separately quoted unless agreed in writing.
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="mb-8 rounded-xl bg-white border border-slate-200/60 p-5 shadow-sm">
@@ -152,7 +171,7 @@ export default function DemoGuidePage() {
 
         <div className="rounded-xl bg-white border border-slate-200/60 shadow-sm">
           <div className="px-5 py-4 border-b border-slate-100">
-            <h2 className="font-semibold text-slate-500">Not included in Phase 1 (future phases)</h2>
+            <h2 className="font-semibold text-slate-500">Not included in Phase 1</h2>
           </div>
           <ul className="divide-y divide-slate-50">
             {excluded.map((item) => (
@@ -168,25 +187,24 @@ export default function DemoGuidePage() {
       <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50/60 shadow-sm">
         <div className="px-5 py-4 border-b border-amber-200/70 flex items-center gap-2">
           <Sparkles className="h-4 w-4 text-amber-600" />
-          <h2 className="font-semibold text-amber-800">Potential Phase 1 Additions — Subject to Access and Confirmation</h2>
+          <h2 className="font-semibold text-amber-800">Subject to Access and Confirmation</h2>
         </div>
         <p className="px-5 py-3 text-sm text-amber-900 border-b border-amber-200/70">
-          These items may be included only if the required account access, supplier documentation, credentials, permissions,
-          pricing, technical feasibility and final agreed scope allow.
+          The following Phase 1 integration items depend on access, credentials, vendor confirmation, technical feasibility and
+          final written scope:
         </p>
         <ul className="divide-y divide-amber-100">
-          {aspirational.map((item) => (
+          {accessDependent.map((item) => (
             <li key={item} className="flex items-start gap-3 px-5 py-3">
               <Sparkles className="h-4 w-4 shrink-0 text-amber-500 mt-0.5" />
               <span className="text-sm text-amber-900">{item}</span>
             </li>
           ))}
         </ul>
-        <p className="px-5 py-3 text-xs text-amber-700 border-t border-amber-200/70">
-          These items are not guaranteed inclusions. They depend on third-party access, documentation, credentials, vendor
-          approval, pricing, testing and final written scope. Where direct API access is not available, we may use practical
-          fallback methods such as manual references, tracking links, CSV/file exchange, SFTP/FTP, scheduled reports or
-          email-based supplier update capture.
+        <p className="px-5 py-3 text-sm text-amber-900 border-t border-amber-200/70">
+          Other supplier integrations are not included in Phase 1. This includes Transmate, Internet Courier, Trans Courier,
+          Prince Courier and any additional supplier or carrier platforms. These may be assessed later as separate phases or
+          separately quoted work.
         </p>
       </div>
 
@@ -194,16 +212,18 @@ export default function DemoGuidePage() {
         <h2 className="font-semibold text-slate-900 mb-2">How it fits together</h2>
         <div className="space-y-3 text-sm text-slate-600">
           <p>
-            Project Freight is managed directly inside this portal. General Freight and Consignments stay linked to third-party
-            supplier/TMS platforms. TransVirtual is the primary Phase 1 API candidate, subject to Romann account access and
-            vendor confirmation. Transmate, Internet Courier and other supplier systems remain manual/reference, CSV/file-based,
-            email-assisted or vendor-supported unless approved integration access is confirmed.
+            Project Freight is managed directly inside this portal. General Freight and Consignments can store supplier
+            references, tracking links, status fields, documents and related notes.
           </p>
           <p>
-            The portal stores internal job records, supplier references, tracking links, sync status, documents and Xero
-            reference fields. Xero remains the source of truth for invoices, payments, tax and reconciliation. Where agreed,
-            the portal may create draft invoices or display invoice/payment status, but it does not replace Xero accounting
-            workflows.
+            For Phase 1, TransVirtual is the first supplier integration path, subject to Romann account access, API credentials
+            and vendor confirmation. Other supplier platforms, including Transmate, Internet Courier, Trans Courier, Prince
+            Courier and any additional supplier/carrier systems, are outside the Phase 1 integration scope unless separately
+            agreed and quoted.
+          </p>
+          <p>
+            Xero remains the source of truth for invoices, payments, tax and reconciliation. Where agreed, the portal may create
+            draft invoices or display invoice/payment status, but it does not replace Xero accounting workflows.
           </p>
           <p>
             Each workflow must have a single invoice source: Xero/manual, supplier-native Xero integration, or portal-to-Xero.
