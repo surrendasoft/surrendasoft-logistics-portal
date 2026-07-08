@@ -29,7 +29,7 @@ const modules = [
   { href: "/leads", label: "Leads / CRM", icon: Users, desc: "Capture enquiries, track pipeline status and convert leads into customers or jobs." },
   { href: "/customers", label: "Customers", icon: Building2, desc: "Customer records, related jobs, notes and Xero contact references." },
   { href: "/project-freight", label: "Project Freight", icon: Truck, desc: "Freight managed inside the portal — sender/receiver, tasks, documents, POD and Xero references." },
-  { href: "/general-freight", label: "General Freight", icon: Package, desc: "Reference records for third-party supplier/TMS jobs. Phase 1 supports supplier references, tracking links, status fields and related documents. TransVirtual is the first supplier integration path; other supplier integrations are future/separately scoped." },
+  { href: "/general-freight", label: "General Freight", icon: Package, desc: "Reference records for third-party supplier/TMS jobs. The MVP supports supplier references, tracking links, status fields and related documents. TransVirtual is the first supplier integration path; other supplier integrations are future/separately scoped." },
   { href: "/consignments", label: "Consignments", icon: ClipboardList, desc: "TransVirtual-style consignment table with sender/receiver, qty/weight/cubic and filters." },
   { href: "/suppliers", label: "Suppliers / Agents", icon: UserCog, desc: "Supplier and agent records with compliance status and related jobs." },
   { href: "/compliance", label: "Compliance", icon: ShieldCheck, desc: "Insurance, licence and police-check documents with expiry tracking." },
@@ -78,7 +78,7 @@ export default function DemoGuidePage() {
     <div>
       <PageHeader
         title="Demo Guide"
-        description="A quick tour of the Phase 1 MVP — what this portal does, and what is in and out of scope."
+        description="A quick tour of the MVP — what this portal does, and what is in and out of scope."
       />
 
       <div className="mb-6 rounded-xl border border-sky-200 bg-sky-50 p-5">
@@ -95,9 +95,9 @@ export default function DemoGuidePage() {
             <ShieldCheck className="h-5 w-5" />
           </div>
           <div>
-            <h2 className="font-semibold text-amber-950">Phase 1 Scope Note</h2>
+            <h2 className="font-semibold text-amber-950">MVP Scope Note</h2>
             <p className="mt-1 text-sm text-amber-900">
-              This demo is a discussion reference only. The Phase 1 MVP is focused on the core Romann Logistics portal, Xero
+              This demo is a discussion reference only. The MVP is focused on the core Romann Logistics portal, Xero
               handling where agreed, and TransVirtual as the first supplier integration path. Other supplier integrations are
               future/separately quoted unless agreed in writing.
             </p>
@@ -115,7 +115,7 @@ export default function DemoGuidePage() {
               <h2 className="font-semibold text-slate-900">Demo Review Checklist</h2>
               <p className="mt-1 text-sm text-slate-500">
                 After clicking through the modules below, use the checklist to note what looks right, what to change, and
-                anything missing before Phase 1 build starts.
+                anything missing before MVP build starts.
               </p>
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function DemoGuidePage() {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <div className="rounded-xl bg-white border border-slate-200/60 shadow-sm">
           <div className="px-5 py-4 border-b border-slate-100">
-            <h2 className="font-semibold text-emerald-700">Included in Phase 1 MVP</h2>
+            <h2 className="font-semibold text-emerald-700">Included in the MVP</h2>
           </div>
           <ul className="divide-y divide-slate-50">
             {included.map((item) => (
@@ -171,7 +171,7 @@ export default function DemoGuidePage() {
 
         <div className="rounded-xl bg-white border border-slate-200/60 shadow-sm">
           <div className="px-5 py-4 border-b border-slate-100">
-            <h2 className="font-semibold text-slate-500">Not included in Phase 1</h2>
+            <h2 className="font-semibold text-slate-500">Not included in the MVP</h2>
           </div>
           <ul className="divide-y divide-slate-50">
             {excluded.map((item) => (
@@ -190,7 +190,7 @@ export default function DemoGuidePage() {
           <h2 className="font-semibold text-amber-800">Subject to Access and Confirmation</h2>
         </div>
         <p className="px-5 py-3 text-sm text-amber-900 border-b border-amber-200/70">
-          The following Phase 1 integration items depend on access, credentials, vendor confirmation, technical feasibility and
+          The following MVP integration items depend on access, credentials, vendor confirmation, technical feasibility and
           final written scope:
         </p>
         <ul className="divide-y divide-amber-100">
@@ -202,7 +202,7 @@ export default function DemoGuidePage() {
           ))}
         </ul>
         <p className="px-5 py-3 text-sm text-amber-900 border-t border-amber-200/70">
-          Other supplier integrations are not included in Phase 1. This includes Transmate, Internet Courier, Trans Courier,
+          Other supplier integrations are not included in the MVP. This includes Transmate, Internet Courier, Trans Courier,
           Prince Courier and any additional supplier or carrier platforms. These may be assessed later as separate phases or
           separately quoted work.
         </p>
@@ -216,9 +216,9 @@ export default function DemoGuidePage() {
             references, tracking links, status fields, documents and related notes.
           </p>
           <p>
-            For Phase 1, TransVirtual is the first supplier integration path, subject to Romann account access, API credentials
+            For the MVP, TransVirtual is the first supplier integration path, subject to Romann account access, API credentials
             and vendor confirmation. Other supplier platforms, including Transmate, Internet Courier, Trans Courier, Prince
-            Courier and any additional supplier/carrier systems, are outside the Phase 1 integration scope unless separately
+            Courier and any additional supplier/carrier systems, are outside the MVP integration scope unless separately
             agreed and quoted.
           </p>
           <p>
@@ -227,7 +227,7 @@ export default function DemoGuidePage() {
           </p>
           <p>
             Each workflow must have a single invoice source: Xero/manual, supplier-native Xero integration, or portal-to-Xero.
-            This avoids duplicate invoices and keeps Phase 1 focused while creating a foundation for deeper integrations later.
+            This avoids duplicate invoices and keeps the MVP focused while creating a foundation for deeper integrations later.
           </p>
         </div>
       </div>
